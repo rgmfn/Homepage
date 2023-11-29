@@ -1,28 +1,43 @@
 import React from 'react';
 import {Box, Typography} from '@mui/material';
 
-const GridItem = ({children, name, src, ...props}) => (
+const GridItem = ({
+  children,
+  name,
+  src,
+  click,
+  imgprops,
+  titlevariant,
+  descriptionvariant,
+  ...props
+}) => (
   <Box
     textAlign="center"
-    style={{
-      cursor: 'pointer',
-    }}
     {...props}
   >
-    <img
-      src={src}
+    <Box
+      onClick={click}
       style={{
-        borderRadius: 10,
-        objectFit: 'contain',
-        width: '100%',
+        cursor: 'pointer',
       }}
-    />
-    <Typography
-      variant="h6"
-    >{name}</Typography>
-    <Typography
-      color="text.secondary"
-    >{children}</Typography>
+    >
+      <img
+        src={src}
+        alt={src}
+        style={{
+          borderRadius: 10,
+          objectFit: 'contain',
+          width: '100%',
+        }}
+        {...imgprops}
+      />
+      <Typography
+        variant={titlevariant}
+      >{name}</Typography>
+      <Typography
+        variant={descriptionvariant}
+      >{children}</Typography>
+    </Box>
   </Box>
 )
 

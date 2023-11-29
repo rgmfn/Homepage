@@ -3,9 +3,9 @@ import { NavLink, Link } from 'react-router-dom'
 import { Stack, Box, Menu, MenuItem } from '@mui/material'
 import { GitHub as GitHubIcon, Menu as MenuIcon } from '@mui/icons-material';
 
-import NavLinkItem from './NavLinkItem';
+import { theme } from './theme';
 
-import { homepageTheme } from './theme'
+import NavLinkItem from './NavLinkItem';
 
 function NavBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -17,10 +17,14 @@ function NavBar() {
   }
 
   return (
-    <>
+    <div
+      style={{
+        padding: 10,
+      }}
+    >
       <Stack
         style={{
-          background: homepageTheme.green,
+          background: theme.green,
           borderRadius: 7,
         }}
         direction="row"
@@ -34,9 +38,9 @@ function NavBar() {
             display: 'flex',
             alignItems: 'center',
             padding: 10,
-            paddingLeft: 15,
+            paddingLeft: 20,
             textDecoration: 'none',
-            color: 'white',
+            color: theme.white,
           }}
         >
           rgmfn
@@ -56,14 +60,29 @@ function NavBar() {
           <NavLinkItem href="/music">
             Music
           </NavLinkItem>
-          <NavLinkItem href="/about">
-            About
-          </NavLinkItem>
-          <NavLinkItem
+          {/* <NavLinkItem href="/about"> */}
+          {/*   About */}
+          {/* </NavLinkItem> */}
+          <a
             href="https://github.com/rgmfn/Homepage"
+            style={{
+              background: theme.green,
+              color: theme.white,
+              cursor: 'pointer',
+              paddingLeft: 20,
+              paddingRight: 20,
+              // transition: 0.2,
+              boxSizing: 'border-box',
+              fontSize: 18,
+              height: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              textDecoration: 'none',
+              borderRadius: '0 7px 7px 0',
+            }}
           >
             Source <GitHubIcon />
-          </NavLinkItem>
+          </a>
         </Stack>
 
         <Box
@@ -75,7 +94,7 @@ function NavBar() {
             onClick={handleClick}
             style={{
               color: 'white',
-              paddingRight: 15,
+              marginRight: 15,
               borderColor: 'white',
             }}
           />
@@ -88,11 +107,11 @@ function NavBar() {
             <MenuItem component={Link} to="">Home</MenuItem>
             <MenuItem component={Link} to="programs">Programs</MenuItem>
             <MenuItem component={Link} to="music">Music</MenuItem>
-            <MenuItem component={Link} to="about">About</MenuItem>
+            {/* <MenuItem component={Link} to="about">About</MenuItem> */}
           </Menu>
         </Box>
       </Stack>
-    </>
+    </div>
   )
 }
 

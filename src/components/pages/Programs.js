@@ -16,66 +16,42 @@ function Programs() {
         alignItems: 'center',
       }}
     >
-      <Typography
-        variant="h5"
-        style={{
-          marginTop: 30,
-          marginBottom: 20,
-        }}
-      >
-        Software
-      </Typography>
-      <Grid
-        container
-        spacing={2}
-        style={{
-          width: '80%',
-        }}
-      >
-        {softwareData.map((item) => (
-          <Grid
-            item
-            component={GridItem}
-            xs={12}
-            md={6}
-            name={item.name}
-            src={item.img}
-            onClick={() => navigate(item.id)}
+      {sections.map((section) => (
+        <>
+          <Typography
+            variant="h4"
+            style={{
+              marginTop: 30,
+              marginBottom: 20,
+            }}
           >
-              {item.description}
-          </Grid>
-        ))}
-      </Grid>
-      <Typography
-        variant="h5"
-        style={{
-          marginTop: 30,
-          marginBottom: 20,
-        }}
-      >
-        Games
-      </Typography>
-      <Grid
-        container
-        spacing={2}
-        style={{
-          width: '80%',
-        }}
-      >
-        {gameData.map((item) => (
+            {section.name}
+          </Typography>
           <Grid
-            item
-            component={GridItem}
-            xs={12}
-            md={6}
-            name={item.name}
-            src={item.img}
-            onClick={() => navigate(item.id)}
+            container
+            spacing={8}
+            style={{
+              width: '80%',
+            }}
           >
-              {item.description}
+            {section.data.map((item) => (
+              <Grid
+                item
+                component={GridItem}
+                xs={12}
+                md={6}
+                name={item.name}
+                src={item.img}
+                titlevariant="h4"
+                descriptionvariant="h6"
+                onClick={() => navigate(item.link)}
+              >
+                  {item.description}
+              </Grid>
+            ))}
           </Grid>
-        ))}
-      </Grid>
+        </>
+      ))}
     </div>
   )
 }
@@ -83,28 +59,39 @@ function Programs() {
 const softwareData = [ 
   {
     name: 'SpotifyTags',
-    id: 'spotifytags',
     description: 'A browser music streaming platform that allows for dynamic playlist creating with a tag system through use of the Spotify Web API.',
     img: '/images/spotifytags.png',
+    link: 'spotifytags',
   },
   {
-    name: 'corg',
-    id: 'corg',
+    name: 'Corg',
     description: 'An ncurses CLI tool for editing and viewing emacs org files written in C.',
     img: '/images/corg.png',
+    link: 'corg',
   },
 ];
 const gameData = [
   {
     name: 'Laundry Day',
-    id: 'laundryday',
-    img: '/images/laundryday.png'
+    description: 'A (very) short game where you sort socks.',
+    img: '/images/laundryday.png',
+    link: 'laundryday',
   },
   // {
   //   name: 'Sudoku Game',
   //   id: 'sudokugame',
   //   img: '/images/sudokugame.png',
   // },
+];
+const sections = [
+  {
+    name: 'Software',
+    data: softwareData,
+  },
+  {
+    name: 'Games',
+    data: gameData,
+  }
 ];
 
 export default Programs;

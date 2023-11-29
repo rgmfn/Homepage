@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import {Breadcrumbs, Typography, Link} from '@mui/material'
 
-import { homepageTheme as theme } from '../theme'
+import { theme } from '../theme'
 
 function Program() {
   const {id} = useParams()
@@ -21,34 +21,66 @@ function Program() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          width: '80%',
+          width: '60%',
         }}
       >
-        <Breadcrumbs>
-          <Link
-            underline="hover"
-            color="inherit"
-            href="/programs"
+        <div
+          style={{
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <Breadcrumbs
+            style={{
+              margin: 20,
+            }}
           >
-            Programs
-          </Link>
-          <Typography>
-            {program.name}
-          </Typography>
-        </Breadcrumbs>
-        <p>
+            <Link
+              underline="hover"
+              color={theme.green}
+              href="/programs"
+            >
+              Programs
+            </Link>
+            <Typography variant="h2">
+              {program.name}
+            </Typography>
+          </Breadcrumbs>
+          <div />
+        </div>
+        <Typography
+          style={{
+            textAlign: 'center',
+            width: '80%',
+          }}
+          variant="h6"
+        >
           {program.description}
-        </p>
-        <table>
+        </Typography>
+        <table
+          style={{
+            padding: 10,
+            margin: 20,
+            background: theme.lightgray,
+            borderRadius: 8,
+          }}
+        >
           <tbody>
             <tr>
               <td
                 style={{
+                  display: 'flex',
+                  justifyContent: 'center',
                   background: theme.green,
                   padding: 4,
                   borderRadius: 4,
                 }}
-              >Github</td>
+              >
+                <Typography variant="button" textAlign="center">
+                  Github
+                </Typography>
+              </td>
               <td>
                 <Link
                   color={theme.green}
@@ -56,7 +88,8 @@ function Program() {
                   underline="hover"
                   href={program.githublink}
                   style={{
-                    padding: 10,
+                    alignItems: 'left',
+                    paddingLeft: 10,
                   }}
                 >
                   {program.githublink}
@@ -66,11 +99,17 @@ function Program() {
             <tr>
               <td
                 style={{
+                  display: 'flex',
+                  justifyContent: 'center',
                   background: theme.green,
                   padding: 4,
                   borderRadius: 4,
                 }}
-              >Stack</td>
+              >
+                <Typography variant="button">
+                  Stack
+                </Typography>
+              </td>
               <td>
                 {program.stack}
               </td>

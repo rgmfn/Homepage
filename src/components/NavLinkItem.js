@@ -2,6 +2,8 @@ import React from 'react';
 
 import { NavLink } from 'react-router-dom';
 
+import { theme } from './theme';
+
 const NavLinkItem = ({href, children, ...props}) => {
   return (
     <NavLink
@@ -9,11 +11,9 @@ const NavLinkItem = ({href, children, ...props}) => {
       to={href}
       style={({isActive}) => {
         return {
-          background: isActive ? '#fff' : '',
-          color: isActive ? '#000' : '#fff',
+          background: isActive ? theme.white : '',
+          color: isActive ? theme.green : theme.white,
           cursor: 'pointer',
-          paddingTop: 10,
-          paddingBottom: 10,
           paddingLeft: 20,
           paddingRight: 20,
           transition: 0.2,
