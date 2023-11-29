@@ -1,12 +1,17 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import {Breadcrumbs, Typography, Link} from '@mui/material'
+import { useLayoutEffect } from 'react'
 
 import { theme } from '../theme'
 
 function Program() {
   const {id} = useParams()
   const program = programs[id];
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
   return (
     <div
@@ -112,7 +117,7 @@ function Program() {
                   Stack
                 </Typography>
               </td>
-              <td>
+              <td style={{paddingLeft: 10}}>
                 {program.stack}
               </td>
             </tr>

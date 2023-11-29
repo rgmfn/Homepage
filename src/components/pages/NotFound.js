@@ -1,7 +1,11 @@
 import {Typography, Container} from '@mui/material';
-import React from 'react'
+import React, {useLayoutEffect} from 'react'
 
 function NotFound() {
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   return (
     <>
       <Container

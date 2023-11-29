@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useLayoutEffect} from 'react';
 
 import { Typography, Grid } from '@mui/material';
 
@@ -7,6 +7,10 @@ import {useNavigate} from 'react-router-dom';
 
 function Programs() {
   const navigate = useNavigate();
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
   return (
     <div

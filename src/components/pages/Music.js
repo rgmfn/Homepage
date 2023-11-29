@@ -1,10 +1,9 @@
 import React from 'react';
-import { useEffect } from 'react';
 
+import { useEffect, useLayoutEffect } from 'react';
 import { Grid, Typography } from '@mui/material';
 
 import { theme } from '../theme';
-
 import GridItem from '../GridItem'
 
 function ComingSoon() {
@@ -72,6 +71,10 @@ function ComingSoon() {
 }
 
 function Music() {
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   return (
     <div
       style={{

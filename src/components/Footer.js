@@ -12,10 +12,8 @@ function Footer() {
         alignItems: 'center',
       }}
     >
-      <Typography
-        color="text.secondary"
-      >
-        Made with React
+      <Typography>
+        Website made with React
       </Typography>
     </div>
   )

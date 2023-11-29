@@ -65,6 +65,8 @@ function NavBar() {
           {/* </NavLinkItem> */}
           <a
             href="https://github.com/rgmfn/Homepage"
+            rel="noreferrer"
+            target="_blank" // opens in a new tab
             style={{
               background: theme.green,
               color: theme.white,
