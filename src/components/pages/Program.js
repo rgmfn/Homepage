@@ -87,6 +87,8 @@ function Program() {
                   align="left"
                   underline="hover"
                   href={program.githublink}
+                  target="_blank"
+                  rel="noreferrer"
                   style={{
                     alignItems: 'left',
                     paddingLeft: 10,
