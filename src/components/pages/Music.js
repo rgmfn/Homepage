@@ -118,13 +118,13 @@ const musicData = [
     name: 'SoundCloud',
     description: 'Acapella and instrumental covers and original songs.',
     link: 'https://soundcloud.com/user-439843206',
-    img: '%PUBLIC_URL%/images/soundcloud.jpg',
+    img: '/images/soundcloud.jpg',
   },
   {
     name: 'Youtube',
     description: 'French Horn multitracks and electronic music.',
     link: 'https://www.youtube.com/@RagamuffinAround',
-    img: '%PUBLIC_URL%/images/youtube.jpg',
+    img: '/images/youtube.jpg',
   },
 ];
 
@@ -134,11 +134,11 @@ const comingSoonData = [
     chunks: [
       {
         id: 'blta audio 1',
-        src: '%PUBLIC_URL%/audio/be like this always wip 1.wav',
+        src: '/audio/be like this always wip 1.wav',
       },
       {
         id: 'blta audio 2',
-        src: '%PUBLIC_URL%/audio/be like this always wip 2.wav',
+        src: '/audio/be like this always wip 2.wav',
       },
     ],
   },
@@ -147,7 +147,7 @@ const comingSoonData = [
     chunks: [
       {
         id: 'xmas audio',
-        src: '%PUBLIC_URL%/audio/christmas time is here wip.wav',
+        src: '/audio/christmas time is here wip.wav',
       }
     ]
   },

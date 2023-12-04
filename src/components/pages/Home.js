@@ -36,7 +36,7 @@ function Home() {
           width: '50%',
         }}
       >
-        <img src="%PUBLIC_URL%/images/headshot.png" alt="headshot" 
+        <img src="/images/headshot.png" alt="headshot" 
           style={{
             borderRadius: '10px 0px 0px 10px',
             objectFit: 'contain',
