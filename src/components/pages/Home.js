@@ -1,9 +1,10 @@
 import React, {useLayoutEffect} from 'react';
-import { Typography, Link } from '@mui/material';
+import { Typography } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GithubIcon from '@mui/icons-material/GitHub';
 
+import InfoTable from '../InfoTable';
 import { theme } from '../theme';
 
 function Home() {
@@ -35,7 +36,7 @@ function Home() {
           width: '50%',
         }}
       >
-        <img src="images/headshot.png" alt="headshot" 
+        <img src="%PUBLIC_URL%/images/headshot.png" alt="headshot" 
           style={{
             borderRadius: '10px 0px 0px 10px',
             objectFit: 'contain',
@@ -74,126 +75,32 @@ function Home() {
           <div>September 2019 - June 2023</div>
         </Typography>
       </div>
-
-      <Typography
-        variant="h6"
+      <InfoTable
+        title="Links"
+        data={[
+          {
+            name: <EmailIcon />,
+            nameBackground: 'none',
+            data: 'rgmfn.business@gmail.com',
+            link: false,
+          },
+          {
+            name: <LinkedInIcon />,
+            nameBackground: 'none',
+            data: 'linkedin.com/in/rgmfn',
+            link: true,
+          },
+          {
+            name: <GithubIcon />,
+            nameBackground: 'none',
+            data: 'github.com/rgmfn',
+            link: true,
+          },
+        ]}
         style={{
           marginTop: 70,
         }}
-      >
-        Links
-      </Typography>
-      <table
-        style={{
-          padding: 10,
-          margin: 10,
-          background: theme.lightgray,
-          borderRadius: 8,
-          textAlign: 'left',
-        }}
-      >
-        <tbody>
-          <tr>
-            <td
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                // background: theme.green,
-                padding: 4,
-                borderRadius: 4,
-              }}
-            >
-              <Typography
-                variant="button"
-                textAlign="center"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-              >
-                <EmailIcon />
-              </Typography>
-            </td>
-            <td style={{textAlign: 'left', paddingLeft: 10}}>
-              rygragg@gmail.com
-            </td>
-          </tr>
-          <tr>
-            <td
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                // background: theme.green,
-                padding: 4,
-                borderRadius: 4,
-              }}
-            >
-              <Typography
-                variant="button"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-              >
-                <LinkedInIcon />
-              </Typography>
-            </td>
-            <td>
-              <Link
-                color={theme.green}
-                align="left"
-                underline="hover"
-                href={'https://www.linkedin.com/in/rgmfn'}
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  alignItems: 'left',
-                  paddingLeft: 10,
-                }}
-              >
-                www.linkedin.com/in/rgmfn
-            </Link>
-          </td>
-          </tr>
-          <tr>
-            <td
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                // background: theme.green,
-                padding: 4,
-                borderRadius: 4,
-              }}
-            >
-              <Typography
-                variant="button"
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                }}
-              >
-                <GithubIcon />
-              </Typography>
-            </td>
-            <td>
-              <Link
-                color={theme.green}
-                align="left"
-                underline="hover"
-                href={'https://github.com/rgmfn'}
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  alignItems: 'left',
-                  paddingLeft: 10,
-                }}
-              >
-                github.com/rgmfn
-              </Link>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      />
     </div>
   )
 }

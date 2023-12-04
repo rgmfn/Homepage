@@ -4,6 +4,7 @@ import {Breadcrumbs, Typography, Link} from '@mui/material'
 import { useLayoutEffect } from 'react'
 
 import { theme } from '../theme'
+import InfoTable from '../InfoTable'
 
 function Program() {
   const {id} = useParams()
@@ -63,66 +64,22 @@ function Program() {
         >
           {program.description}
         </Typography>
-        <table
-          style={{
-            padding: 10,
-            margin: 20,
-            background: theme.lightgray,
-            borderRadius: 8,
-          }}
-        >
-          <tbody>
-            <tr>
-              <td
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  background: theme.green,
-                  padding: 4,
-                  borderRadius: 4,
-                }}
-              >
-                <Typography variant="button" textAlign="center">
-                  Github
-                </Typography>
-              </td>
-              <td>
-                <Link
-                  color={theme.green}
-                  align="left"
-                  underline="hover"
-                  href={program.githublink}
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{
-                    alignItems: 'left',
-                    paddingLeft: 10,
-                  }}
-                >
-                  {program.githublink}
-                </Link>
-              </td>
-            </tr>
-            <tr>
-              <td
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  background: theme.green,
-                  padding: 4,
-                  borderRadius: 4,
-                }}
-              >
-                <Typography variant="button">
-                  Stack
-                </Typography>
-              </td>
-              <td style={{paddingLeft: 10}}>
-                {program.stack}
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <InfoTable
+          data={[
+            {
+              name: "Github",
+              nameBackground: theme.green,
+              data: program.githublink,
+              link: true,
+            },
+            {
+              name: 'Stack',
+              nameBackground: theme.green,
+              data: program.stack,
+              link: false,
+            }
+          ]}
+        />
         <img
           src={program.img}
           alt={program.alt}
