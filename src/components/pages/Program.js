@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import {Breadcrumbs, Typography, Link} from '@mui/material'
 import { useLayoutEffect } from 'react'
 
+import YouTube from 'react-youtube'
+
 import { theme } from '../theme'
 import InfoTable from '../InfoTable'
 
@@ -64,6 +66,17 @@ function Program() {
         >
           {program.description}
         </Typography>
+        {Boolean(program.text) &&
+          <Typography
+            style={{
+              textAlign: 'center',
+              width: '80%',
+              marginTop: 40,
+            }}
+          >
+            {program.text}
+          </Typography>
+        }
         <InfoTable
           data={[
             {
@@ -89,6 +102,14 @@ function Program() {
             width: '100%',
           }}
         />
+        {Boolean(program.video) && 
+          <YouTube
+            style={{
+              marginTop: 50,
+            }}
+            videoId={program.video}
+          />
+        }
       </div>
     </div>
   )
@@ -99,8 +120,18 @@ const programs = {
     name: 'SpotifyTags',
     githublink: 'https://github.com/rgmfn/spotify-tags',
     description: 'A browser music streaming platform that allows for dynamic playlist creating with a tag system through use of the Spotify Web API.',
+    text: <>
+      <p>This program was made as part of a class.</p>
+      <p>
+        We used Scrum, and I was the Product Owner and a Developer on a team of 6.
+      </p>
+      <p>
+        I helped a little with the backend, but primarily worked on frontend (displaying the library, displaying and editing the expression, displaying Spotify search results).
+      </p>
+    </>,
     stack: 'React, Express.js, Node.js, PostgresQL',
     img: '/images/spotifytags.png',
+    video: 'S1go5fioQbo',
     alts: 'spotifytags placeholder',
   },
   "corg": {
@@ -109,6 +140,7 @@ const programs = {
     description: 'An emacs org-file reader and writer written with ncurses in C.',
     stack: 'C, ncurses',
     img: '/images/corg.png',
+    video: 'QgYhuPgbp3s',
     alts: 'corg placeholder',
   },
   "laundryday": {

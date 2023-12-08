@@ -24,3 +24,6 @@ yarn-error.log*
 
 /public/videos/
 package-lock.json
+
+# Local Netlify folder
+.netlify

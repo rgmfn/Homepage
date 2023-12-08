@@ -87,13 +87,13 @@ function Home() {
           {
             name: <LinkedInIcon />,
             nameBackground: 'none',
-            data: 'linkedin.com/in/rgmfn',
+            data: 'https://linkedin.com/in/rgmfn',
             link: true,
           },
           {
             name: <GithubIcon />,
             nameBackground: 'none',
-            data: 'github.com/rgmfn',
+            data: 'https://github.com/rgmfn',
             link: true,
           },
         ]}
