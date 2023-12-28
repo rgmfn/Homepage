@@ -23,10 +23,9 @@ function Programs() {
       {sections.map((section) => (
         <>
           <Typography
-            variant="h4"
+            variant="h2"
             style={{
-              marginTop: 30,
-              marginBottom: 20,
+              margin: 60,
             }}
           >
             {section.name}

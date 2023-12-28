@@ -142,15 +142,6 @@ const comingSoonData = [
       },
     ],
   },
-  {
-    name: 'Christmas Time Is Here',
-    chunks: [
-      {
-        id: 'xmas audio',
-        src: '/audio/christmas time is here wip.wav',
-      }
-    ]
-  },
 ];
 
 export default Music;

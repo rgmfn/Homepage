@@ -3,8 +3,6 @@ import { useParams } from 'react-router-dom'
 import {Breadcrumbs, Typography, Link} from '@mui/material'
 import { useLayoutEffect } from 'react'
 
-import YouTube from 'react-youtube'
-
 import { theme } from '../theme'
 import InfoTable from '../InfoTable'
 
@@ -100,15 +98,39 @@ function Program() {
             borderRadius: 10,
             objectFit: 'contain',
             width: '100%',
+            marginBottom: 50,
           }}
         />
         {Boolean(program.video) && 
-          <YouTube
+          <div
+            className="video-responsive"
             style={{
-              marginTop: 50,
+              overflow: 'hidden',
+              paddingBottom: '56.25%',
+              position: 'relative',
+              left: 0,
+              top: 0,
+              height: '100%',
+              width: '100%',
             }}
-            videoId={program.video}
-          />
+          >
+            <iframe
+              style={{
+                left: 0,
+                top: 0,
+                height: '100%',
+                width: '100%',
+                position: 'absolute',
+              }}
+              width="853"
+              height="480"
+              src={`https://www.youtube.com/embed/${program.video}`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="Embedded youtube"
+            />
+          </div>
         }
       </div>
     </div>
