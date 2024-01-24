@@ -171,7 +171,7 @@ const programs = {
         link: 'https://drumcorpsdle.netlify.app',
         linkName: 'Website',
         description: 'A wordle game for Drum Corps.',
-        text: 'Drum Corpsdle is in beta right now, so its database of shows is by no means extensive.',
+        text: 'Featuring DCI\'s top 12 groups from the years 2000-2018, 2021-2022.',
         stack: 'React, MaterialUI',
         img: '/images/drumcorpsdle.png',
         alts: 'drumcorpsdle placeholder',
