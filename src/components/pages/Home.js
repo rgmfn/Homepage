@@ -99,7 +99,7 @@ function Home() {
           {
             name: <EmailIcon />,
             nameBackground: 'none',
-            data: 'rgmfn.business@gmail.com',
+            data: 'rgmfn.dev@gmail.com',
             link: false,
           },
           {
