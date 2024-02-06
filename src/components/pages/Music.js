@@ -99,7 +99,8 @@ function Music() {
             md={6}
             name={item.name}
             src={item.img}
-            click={() => window.open(item.link)}
+            href={item.link}
+            // click={() => window.open(item.link)}
             imgprops={{ style: { borderRadius: '50%', width: '50%' } }}
             titlevariant="h4"
             descriptionvariant="h6"
@@ -139,6 +140,15 @@ const comingSoonData = [
       {
         id: 'blta audio 2',
         src: '/audio/be like this always wip 2.wav',
+      },
+    ],
+  },
+  {
+    name: 'Untitled',
+    chunks: [
+      {
+        id: 'four audio 1',
+        src: '/audio/four wip 1.wav',
       },
     ],
   },
