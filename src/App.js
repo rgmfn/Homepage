@@ -8,6 +8,7 @@ import Home from './components/pages/Home'
 import Programs from './components/pages/Programs'
 import Program from './components/pages/Program'
 import Music from './components/pages/Music'
+import Videos from './components/pages/Videos'
 // import About from './components/pages/About'
 import NotFound from './components/pages/NotFound'
 
@@ -29,6 +30,7 @@ function App() {
           <Route path='/' exact element={<Home />} />
           <Route path='programs' element={<Programs />} />
           <Route path='programs/:id' element={<Program />} />
+          <Route path='videos' element={<Videos />} />
           <Route path='music' element={<Music />} />
           {/* <Route path='about' element={<About />}/> */}
           <Route path='*' element={<NotFound />}/>
