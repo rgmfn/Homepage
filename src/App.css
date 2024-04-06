@@ -1,0 +1,21 @@
+:root {
+  --light-red: #da4242;
+  --light-green: #5ea675;
+  --light-blue: #437cdf;
+  --red: #c31818;
+  --green: #1d7138;
+  --blue: #0755de;
+  --white: #eee8db;
+  --gray: #a8a8a8;
+  --black: #000;
+  --text: var(--white);
+  --text-alt: var(--gray);
+  --bg: var(--black);
+}
+
+body {
+    font-family: 'Instrument Sans', serif;
+    font-weight: 700;
+    background-color: var(--bg);
+    color: var(--text);
+}
