@@ -1,10 +1,14 @@
 import React from 'react'
 
-function About() {
-  return (
-      <>
-      </>
-  )
+import Empty from './Empty'
+
+function About({ aboutRef }) {
+    return (
+        <div ref={aboutRef}>
+            <div>About</div>
+            <Empty />
+        </div>
+    )
 }
 
 export default About;
