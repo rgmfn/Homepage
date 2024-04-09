@@ -11,7 +11,7 @@ import './Splash.css'
 const Section = ({ sectionRef, children }) => (
     <div
         className="section"
-        onClick={() => sectionRef.current?.scrollIntoView({behavior: 'smooth'})}
+        onClick={() => sectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
     >
         {children}
     </div>
@@ -32,12 +32,11 @@ function Splash({
     const sectionsRef = useRef();
     const descriptionRef = useRef();
 
-    let tl = gsap.timeline({ delay: 0.4 })
-
-    // TODO: make section component, uses references that are passed to scroll to
-    // TODO: grow section font size when u hover :)
+    // TODO: grow section font size when u hover? :)
 
     useGSAP(() => {
+        let tl = gsap.timeline({ delay: 0.4 })
+
         gsap.set([topRef.current, midRef.current, botRef.current], { opacity: 1, y: 0 });
 
         // seperate three lines
@@ -57,11 +56,11 @@ function Splash({
             duration: 1.4, marginLeft: 100, ease: Power2.easeInOut,
             // fade in + move sections
         }, "<").from(sectionsRef.current, {
-            duration: 1.4, y: 50, opacity: 0, ease: Power2.easeInOut,
+            duration: 1.4, x: 50, opacity: 0, ease: Power2.easeInOut,
             // });
             // fade in + move description
         }, "<").from(descriptionRef.current, {
-            duration: 1.4, y: 50, opacity: 0, ease: Power2.easeInOut,
+            duration: 1.4, x: -50, opacity: 0, ease: Power2.easeInOut,
         }, "<");
     });
 
