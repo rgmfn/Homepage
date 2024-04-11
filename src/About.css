@@ -1,0 +1,19 @@
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seperator-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.triangle {
+    margin: 20px;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: calc(2 * 20px * 0.866) solid var(--green);
+    border-top: 20px solid transparent;
+}
