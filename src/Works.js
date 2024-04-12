@@ -5,13 +5,24 @@ import React, { useRef } from 'react';
 
 import './Works.css'
 
-const Work = ({ children, src }) => (
-    <div
+const Work = ({ name, stack, href, src, children }) => (
+    <a
         className="work"
+        href={href}
     >
-        <img className="work-img" src={src} />
-        {children}
-    </div>
+        <img className="work-img" src={src} alt={`${name} img`} />
+        <div className="work-info">
+            {children}
+        </div>
+        <div className="work-footer">
+            <div className="work-name">
+                {name}
+            </div>
+            <div className="work-stack">
+                {stack}
+            </div>
+        </div>
+    </a>
 );
 
 /**
@@ -26,12 +37,12 @@ function Works({ worksRef }) {
     const diamondRef4 = useRef();
     const diamondRef5 = useRef();
 
-
     useGSAP(() => {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: diamondRef1.current,
-                start: 'bottom bottom',
+                start: 'top 75%',
+                toggleActions: "play none pause reverse",
             }
         });
 
@@ -68,24 +79,38 @@ function Works({ worksRef }) {
             <h1 className="title">Works</h1>
             <div className="works-grid">
                 <Work
+                    name="Habit Forming"
                     src="/images/habit forming prerelease.png"
+                    stack="Kotlin, Jetpack Compose"
                 >
-                    Habit Forming
+                    An Android app for tracking your habits.
+                    <p>Initial release coming soon!</p>
                 </Work>
                 <Work
+                    name="Drum Corpsdle"
                     src="/images/drumcorpsdle.png"
+                    href="https://drumcorpsdle.netlify.app"
+                    stack="React, MaterialUI"
                 >
-                    Drum Corpsdle
+                    A wordle game for Drum Corps.
+                    <p>Featuring DCI's top 12 groups from the years 2000-2018, 2021-2022.</p>
                 </Work>
                 <Work
+                    name="Corg"
                     src="/images/corg.png"
+                    href="https://github.com/rgmfn/corg"
+                    stack="C, ncurses"
                 >
-                    Corg
+                    An emacs org-file reader and writer written with ncurses in C.
                 </Work>
                 <Work
+                    name="Spotify Tags"
                     src="/images/spotifytags.png"
+                    href="https://github.com/rgmfn/spotify-tags"
+                    stack="React, Material UI, Express.js, Node.js, PostgresQL"
                 >
-                    Spotify Tags
+                    A browser music streaming platform that allows for dynamic playlist creating with a tag system through use of the Spotify Web API.
+                    <p>Developed for a class on a team of 6 using Scrum.</p>
                 </Work>
             </div>
         </div>
