@@ -28,7 +28,7 @@ function App() {
             <Works worksRef={worksRef} />
             <About aboutRef={aboutRef} />
             <Videos videosRef={videosRef} />
-            <Music musicRef={musicRef} />
+            {/* <Music musicRef={musicRef} /> */}
             <Footer footerRef={footerRef} />
         </div>
     );
