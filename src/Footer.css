@@ -1,0 +1,42 @@
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seperator {
+    width: 90%;
+    margin: 20px 0 20px 0;
+}
+
+.contacts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 90%;
+}
+
+.link {
+    text-decoration: none;
+    color: var(--text-alt);
+    font-size: 30px;
+    transition: color 0.5s;
+
+}
+
+.link:hover {
+    color: var(--text);
+}
+
+.link:not(:hover) {
+    animation: linkHoverAnimation 0.5s backwards;
+}
+
+@keyframes linkHoverAnimation {
+    0% {
+        color: var(--text);
+    }
+    100% {
+        color: var(--text-alt);
+    }
+}
