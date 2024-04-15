@@ -1,19 +1,19 @@
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 import './Works.css'
 
-const Work = ({ name, stack, href, src, children }) => (
+const BigWork = ({ name, stack, href, src, children }) => (
     <a
         className="work"
         href={href}
     >
-        <img className="work-img" src={src} alt={`${name} img`} />
         <div className="work-info">
             {children}
         </div>
+        <img className="work-img" src={src} alt={`${name} img`} />
         <div className="work-footer">
             <div className="work-name">
                 {name}
@@ -25,10 +25,40 @@ const Work = ({ name, stack, href, src, children }) => (
     </a>
 );
 
+const SmallWork = ({ name, stack, href, src, children }) => (
+    <div
+        className="work"
+        onClick={
+            () => {
+                if (href) {
+                    window.open(href, '_blank')
+                }
+            }
+        }
+    >
+        <div className="work-footer">
+            <div className="work-name">
+                {name}
+            </div>
+            <div className="work-stack">
+                {stack}
+            </div>
+        </div>
+        <img
+            className="work-img"
+            src={src}
+            alt={`${name} img`}
+        />
+        <div className="work-info-dropdown">
+            {children}
+        </div>
+    </div>
+);
+
 /**
  * TODO
  */
-function Works({ worksRef }) {
+function Works({ worksRef, isSmallScreen }) {
     gsap.registerPlugin(ScrollTrigger);
 
     const diamondRef1 = useRef();
@@ -36,6 +66,8 @@ function Works({ worksRef }) {
     const diamondRef3 = useRef();
     const diamondRef4 = useRef();
     const diamondRef5 = useRef();
+
+    const Work = isSmallScreen ? SmallWork : BigWork;
 
     useGSAP(() => {
         const tl = gsap.timeline({
@@ -82,6 +114,7 @@ function Works({ worksRef }) {
                     name="Habit Forming"
                     src="/images/habit forming prerelease.png"
                     stack="Kotlin, Jetpack Compose"
+                    isScreenSmall={isSmallScreen}
                 >
                     An Android app for tracking your habits.
                     <p>Initial release coming soon!</p>
@@ -91,6 +124,7 @@ function Works({ worksRef }) {
                     src="/images/drumcorpsdle.png"
                     href="https://drumcorpsdle.netlify.app"
                     stack="React, MaterialUI"
+                    isScreenSmall={isSmallScreen}
                 >
                     A wordle game for Drum Corps.
                     <p>Featuring DCI's top 12 groups from the years 2000-2018, 2021-2022.</p>
@@ -100,14 +134,16 @@ function Works({ worksRef }) {
                     src="/images/corg.png"
                     href="https://github.com/rgmfn/corg"
                     stack="C, ncurses"
+                    isScreenSmall={isSmallScreen}
                 >
-                    An emacs org-file reader and writer written with ncurses in C.
+                    <p>An emacs org-file reader and writer written with ncurses in C.</p>
                 </Work>
                 <Work
                     name="Spotify Tags"
                     src="/images/spotifytags.png"
                     href="https://github.com/rgmfn/spotify-tags"
                     stack="React, Material UI, Express.js, Node.js, PostgresQL"
+                    isScreenSmall={isSmallScreen}
                 >
                     A browser music streaming platform that allows for dynamic playlist creating with a tag system through use of the Spotify Web API.
                     <p>Developed for a class on a team of 6 using Scrum.</p>
