@@ -1,27 +1,27 @@
 import { useGSAP } from '@gsap/react';
-import gsap, { Power2 } from 'gsap';
+import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import React, { useRef } from 'react';
-import ReactPlayer from 'react-player';
+import YouTube from 'react-youtube';
 
 import './Videos.css'
 
-const Video = ({ videoCode }) => (
-    <ReactPlayer
-        url={`https://www.youtube.com/watch?v=${videoCode}`}
-        className="react-player"
-    />
-    // <div className="video-container">
-    //   <iframe
-    //     width="560"
-    //     height="315"
-    //     src={`https://www.youtube.com/embed/${videoCode}`}
-    //     title="YouTube video player"
-    //     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    //     allowFullScreen
-    //   ></iframe>
-    // </div>
-);
+const Video = ({ videoCode }) => {
+    const opts = {
+        height: '390',
+        width: '640',
+        playerVars: {
+            autoplay: 0,
+        },
+    };
+
+    return (
+        <YouTube
+            videoId={videoCode}
+            opts={opts}
+        />
+    )
+};
 
 /**
  * TODO make this really small, should fit in less than a screen
@@ -34,7 +34,6 @@ function Videos({ videosRef }) {
     const circleRef3 = useRef();
     const circleRef4 = useRef();
     const circleRef5 = useRef();
-
 
     useGSAP(() => {
         const tl = gsap.timeline({
@@ -76,10 +75,7 @@ function Videos({ videosRef }) {
                 <div className="circle" ref={circleRef5} />
             </div>
             <h1 className="title">Videos</h1>
-            <div className="videos-box">
-                <Video videoCode="HFzpkD5JvJk" />
-                <Video videoCode="Xk6SK1OAn4c" />
-            </div>
+            <Video videoCode="HFzpkD5JvJk" />
         </div>
     )
 }

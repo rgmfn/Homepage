@@ -21,15 +21,20 @@
 .videos-box {
     display: flex;
     flex-direction: row;
-    gap: 30px;
-    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
 }
 
 .video-container {
     overflow: hidden;
-    left: 0;
-    top: 0;
-    position: relative;
-    height: 100%;
     width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1350px) {
+    .videos-box {
+        flex-direction: column;
+    }
 }
