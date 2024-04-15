@@ -30,6 +30,7 @@ function Footer({ footerRef }) {
                 <Link href="https://www.youtube.com/@RagamuffinAround">Youtube</Link>
                 <Link href="https://github.com/rgmfn/Homepage">Source Code</Link>
             </div>
+            <div className="made-in">Made in React</div>
         </div>
     )
 }
