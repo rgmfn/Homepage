@@ -13,6 +13,7 @@
   /* --text-alt: var(--gray); */
   /* --bg: var(--white); */
 
+  --dark-gray: #313131;
   --gray: #a8a8a8;
   --text: var(--white);
   --text-alt: var(--gray);
