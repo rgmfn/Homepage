@@ -5,8 +5,6 @@ import React, { useRef } from 'react';
 
 import './About.css'
 
-import Empty from './Empty'
-
 function About({ aboutRef }) {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -57,7 +55,20 @@ function About({ aboutRef }) {
                 <div className="triangle" ref={triangleRef5} />
             </div>
             <h1 className="title">About</h1>
-            <Empty />
+            <div className="about-name">Ryan Gragg</div>
+            <div class="about">
+                <img className="headshot" src="/images/headshot.png" alt="headshot" />
+                <div className="bio">
+                    <p>Software developer looking for simple and effective solutions to real world problems. Has leadership experience through his 10+ years involved with music and 8+ years programming.</p>
+                    <p>Ryan is driven by a desire to create, whether that be music, programs, food, or videos. He always tries to take a smart approach, and produce the best version possible.</p>
+                </div>
+            </div>
+            <div class="college">
+                <em>University of California, Santa Cruz</em>
+                <p>Computer Science B.S.</p>
+                <p>3.96 GPA</p>
+                <p>September 2019 - June 2023</p>
+            </div>
         </div>
     )
 }

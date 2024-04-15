@@ -17,3 +17,35 @@
     border-bottom: calc(2 * 20px * 0.866) solid var(--green);
     border-top: 20px solid transparent;
 }
+
+.about {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 40px;
+}
+
+.bio {
+    width: 40%;
+    font-size: 2vw;
+    text-align: center;
+}
+
+.headshot {
+    width: 25%;
+    height: 25%;
+    object-fit: contain;
+    border-radius: 10px 0 0 10px;
+}
+
+.about-name {
+    font-size: 3vw;
+    margin-bottom: 20px;
+}
+
+.college {
+    margin-top: 50px;
+    text-align: center;
+}
