@@ -56,8 +56,10 @@ function About({ aboutRef }) {
             </div>
             <h1 className="title">About</h1>
             <div className="about-name">Ryan Gragg</div>
-            <div class="about">
-                <img className="headshot" src="/images/headshot.png" alt="headshot" />
+            <div className="about">
+                <div className="headshot-container">
+                    <img src="/images/headshot.png" alt="headshot" />
+                </div>
                 <div className="bio">
                     <p>Software developer looking for simple and effective solutions to real world problems. Has leadership experience through his 10+ years involved with music and 8+ years programming.</p>
                     <p>Ryan is driven by a desire to create, whether that be music, programs, food, or videos. He always tries to take a smart approach, and produce the best version possible.</p>
