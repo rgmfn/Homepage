@@ -100,7 +100,7 @@ function Works({ worksRef, isSmallScreen }) {
     });
 
     return (
-        <div className="works-container" ref={worksRef}>
+        <div id="works" className="works-container" ref={worksRef}>
             <div className="seperator-container">
                 <div className="diamond" ref={diamondRef1} />
                 <div className="diamond" ref={diamondRef2} />

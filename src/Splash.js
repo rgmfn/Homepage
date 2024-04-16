@@ -8,21 +8,19 @@ import './Splash.css'
 /**
  * TODO
  */
-const Section = ({ sectionRef, children }) => (
-    <div
+const Section = ({ href, children }) => (
+    <a
         className="section"
-        onClick={() => sectionRef.current?.scrollIntoView({ behavior: 'smooth' })}
+        href={href}
     >
         {children}
-    </div>
+    </a>
 );
 
 /**
  * TODO
  */
-function Splash({
-    worksRef, aboutRef, videosRef, musicRef, footerRef, isSmallScreen
-}) {
+function Splash({ isSmallScreen }) {
     // setting up element references for gsap
     gsap.registerPlugin(ScrollTrigger);
 
@@ -80,10 +78,10 @@ function Splash({
                 {
                     !isSmallScreen && (
                         <div className="sections-container" ref={sectionsRef}>
-                            <Section sectionRef={worksRef}>Works</Section>
-                            <Section sectionRef={aboutRef}>About</Section>
-                            <Section sectionRef={videosRef}>Videos</Section>
-                            {/* <Section center={true} sectionRef={musicRef}>Music</Section> */}
+                            <Section href="#works">Works</Section>
+                            <Section href="#about">About</Section>
+                            <Section href="#videos">Videos</Section>
+                            {/* <Section center={true} href="#music">Music</Section> */}
                             {/* <Section sectionRef={footerRef}>Contact</Section> */}
                         </div>
                     )

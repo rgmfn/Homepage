@@ -66,7 +66,7 @@ function Videos({ videosRef }) {
     });
 
     return (
-        <div className="videos-container" ref={videosRef}>
+        <div id="videos" className="videos-container" ref={videosRef}>
             <div className="seperator-container">
                 <div className="circle" ref={circleRef1} />
                 <div className="circle" ref={circleRef2} />

@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Splash from './Splash'
 import Works from './Works'
@@ -28,28 +28,16 @@ function App() {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    // website section references
-    const worksRef = useRef();
-    const aboutRef = useRef();
-    const videosRef = useRef();
-    // const musicRef = useRef();
-    const footerRef = useRef();
-
     return (
         <div>
             <Splash
-                worksRef={worksRef}
-                aboutRef={aboutRef}
-                videosRef={videosRef}
-                // musicRef={musicRef}
-                footerRef={footerRef}
                 isSmallScreen={isSmallScreen}
             />
-            <Works worksRef={worksRef} isSmallScreen={isSmallScreen} />
-            <About aboutRef={aboutRef} />
-            <Videos videosRef={videosRef} />
+            <Works isSmallScreen={isSmallScreen} />
+            <About />
+            <Videos />
             {/* <Music musicRef={musicRef} /> */}
-            <Footer footerRef={footerRef} />
+            <Footer />
         </div>
     );
 }

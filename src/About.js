@@ -46,7 +46,7 @@ function About({ aboutRef }) {
     });
 
     return (
-        <div className="about-container" ref={aboutRef}>
+        <div id="about" className="about-container" ref={aboutRef}>
             <div className="seperator-container">
                 <div className="triangle" ref={triangleRef1} />
                 <div className="triangle" ref={triangleRef2} />

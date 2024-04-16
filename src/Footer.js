@@ -18,7 +18,7 @@ const Link = ({ href, children }) => (
  */
 function Footer({ footerRef }) {
     return (
-        <div className="footer-container" ref={footerRef}>
+        <div id="#footer" className="footer-container" ref={footerRef}>
             <hr className="seperator" />
             <div className="contacts">
                 <div className="email">
