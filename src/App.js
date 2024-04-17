@@ -9,21 +9,33 @@ import Footer from './Footer'
 
 import './App.css'
 
+/**
+ * Gets the width of the view window.
+ *
+ * @return {int} the width of the view window
+ */
 const getWindowWidth = () => {
     const { innerWidth: width } = window;
     return width;
 };
 
+/**
+ * Component representing the webpage.
+ *
+ * @return {object} JSX
+ */
 function App() {
     const SMALL_SCREEN_SIZE = 900;
-    // Getting the window width as state
+    // state for if the window width is < 900px
     const [isSmallScreen, setIsSmallScreen] = useState(getWindowWidth() <= SMALL_SCREEN_SIZE);
 
     useEffect(() => {
+        // sets if the screen is considered small or not based on the window width
         const handleResize = () => {
             setIsSmallScreen(getWindowWidth() <= SMALL_SCREEN_SIZE);
         }
 
+        // connects the handleResize function to the resizing of the screen
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
