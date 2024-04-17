@@ -6,7 +6,12 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import './Splash.css'
 
 /**
- * TODO
+ * A link to an upcoming section of the webpage.
+ *
+ * @param {string} href - the link to the section (#section-name)
+ * @param {array} children - the name of the section
+ *
+ * @return {object} JSX
  */
 const Section = ({ href, children }) => (
     <a
@@ -18,12 +23,16 @@ const Section = ({ href, children }) => (
 );
 
 /**
- * TODO
+ * Component representing the splash section of the webpage
+ * (the first section).
+ *
+ * @return {object} JSX
  */
 function Splash({ isSmallScreen }) {
     // setting up element references for gsap
     gsap.registerPlugin(ScrollTrigger);
 
+    // set up references used to target elements for gsap animations
     const whiteRef = useRef();
     const topRef = useRef();
     const midRef = useRef();
@@ -32,50 +41,106 @@ function Splash({ isSmallScreen }) {
     const descriptionRef = useRef();
     const scrollRef = useRef();
 
+    /**
+     * Animates all the elements appearing in the splash animation.
+     */
     useGSAP(() => {
-        let tl = gsap.timeline({ delay: 0.4 })
+        let tl = gsap.timeline()
 
-        gsap.set([
-            topRef.current, midRef.current, botRef.current, scrollRef.current,
-        ], { opacity: 1, y: 0 });
+        /*
+         * There are 4 copies of the `HI, I'M RYAN.` text.
+         * whiteRef (the white version),
+         * topRef (the top/red version),
+         * midRef (the middle/green version), and
+         * botRef (the bottom/blue version).
+         */
 
-        // seperate three lines
-        tl.from(topRef.current, {
-            duration: 1.4, opacity: 0.8, ease: Power2.easeInOut,
-        }).from(midRef.current, {
-            duration: 1.4, opacity: 0.8, y: "-11.78vw", ease: Power2.easeInOut,
-        }, 0).from(botRef.current, {
-            duration: 1.4, opacity: 0.8, y: "-23.50vw", ease: Power2.easeInOut,
-            // fade out white overlay text
-        }, 0).from(whiteRef.current, {
-            duration: 0.8, opacity: 1, ease: Power2.easeInOut,
-            // slide top and bottom lines
-        }, 0).to(topRef.current, {
-            duration: 1.4, marginRight: 100, ease: Power2.easeInOut,
-        }).to(botRef.current, {
-            duration: 1.4, marginLeft: 100, ease: Power2.easeInOut,
+        // fade out the white text
+        tl.from(whiteRef.current, { // animate whiteRef (the white `HI, I'M RYAN.`)
+            duration: 0.8,
+            opacity: 1,
+            ease: Power2.easeInOut,
+        })
+
+            // fade in topRef
+            .from(topRef.current, { // animate topRef (the top `HI, I'M RYAN.`)
+                duration: 1.4,          // animation lasts 1.4 seconds
+                opacity: 0.8,           // topRef starts at 0.8 opacity (goes to 1)
+                ease: Power2.easeInOut, // ease transition in and out
+            }, "<")
+
+            // fade in midRef and move it out from behind topRef
+            .from(midRef.current, {
+                duration: 1.4,
+                opacity: 0.8,
+                y: "-11.78vw", // magic number that positions midRef behind topRef
+                ease: Power2.easeInOut,
+            }, "<")  // no delay, play with previous animation
+
+            // fade in botRef and move it out from behind topRef
+            .from(botRef.current, {
+                duration: 1.4,
+                opacity: 0.8,
+                y: "-23.50vw", // magic number that positions botRef behind topRef
+                ease: Power2.easeInOut,
+            }, "<")
+
+            // move top `HI, I'M RYAN.` over
+            .to(topRef.current, {
+                duration: 1.4,
+                marginRight: 100, // grow the right margin (moving the text left)
+                ease: Power2.easeInOut,
+            }) // no position argument (ie "<"), wait for previous animations to finish
+
+            // move bottom `HI, I'M RYAN.` over
+            .to(botRef.current, {
+                duration: 1.4,
+                marginLeft: 100, // grow the left margin (moving the text right)
+                ease: Power2.easeInOut,
+            }, "<")
+
             // fade in + move sections
-        }, "<").from(sectionsRef.current, {
-            duration: 1.4, x: 50, opacity: 0, ease: Power2.easeInOut,
-            // });
-            // fade in + move description
-        }, "<").from(descriptionRef.current, {
-            duration: 1.4, x: -50, opacity: 0, ease: Power2.easeInOut,
-        }, "<").from(scrollRef.current, {
-            duration: 1.4, y: -50, opacity: 0, ease: Power2.easeInOut,
-        });
+            .from(sectionsRef.current, {
+                duration: 1.4,
+                x: 50, // start at x position 50 (goes to 0)
+                opacity: 0,
+                ease: Power2.easeInOut,
+            }, "<")
+
+            // fade in and move in description (`Software developer ...`)
+            .from(descriptionRef.current, {
+                duration: 1.4,
+                x: -50, // start at x position -50 (goes to 0)
+                opacity: 0,
+                ease: Power2.easeInOut,
+            }, "<")
+
+            // fade in and move in `scroll...`
+            .from(scrollRef.current, {
+                duration: 1.4,
+                y: -50, // start at y position -50 (goes to 0)
+                opacity: 0,
+                ease: Power2.easeInOut,
+            });
     });
 
     return (
         <div className="splash-container">
             <div className="splash-top">
                 <div className="title-container">
-                    <div className="white" ref={whiteRef}>HI, I'M RYAN.</div>
+                    <div
+                        className="white"
+                        ref={whiteRef} // example of connecting up reference to element
+                    >
+                        HI, I'M RYAN.
+                    </div>
                     <div className="top" ref={topRef}>HI, I'M RYAN.</div>
                     <div className="middle" ref={midRef}>HI, I'M RYAN.</div>
                     <div className="bottom" ref={botRef}>HI, I'M RYAN.</div>
                 </div>
                 {
+                    // only renders the sections-container if the screen is
+                    // not small (< 900px)
                     !isSmallScreen && (
                         <div className="sections-container" ref={sectionsRef}>
                             <Section href="#works">Works</Section>
