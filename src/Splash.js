@@ -26,10 +26,13 @@ const Section = ({ href, children }) => (
  * Component representing the splash section of the webpage
  * (the first section).
  *
+ * @param {boolean} isSmallScreen - if the width of the screen is considered small
+ *                                  as defined in App.js
+ *
  * @return {object} JSX
  */
 function Splash({ isSmallScreen }) {
-    // setting up element references for gsap
+    // needed to have elements react to being scrolled past
     gsap.registerPlugin(ScrollTrigger);
 
     // set up references used to target elements for gsap animations

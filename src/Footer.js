@@ -2,23 +2,34 @@ import React from 'react'
 
 import './Footer.css'
 
-const Link = ({ href, children }) => (
+/**
+ * A link to an external site.
+ *
+ * @param {string} href - address the link goes to
+ *
+ * @return {object} JSX
+ */
+const Link = ({ href, children: name }) => (
     <a
         href={href}
         target="_blank"
         rel="noreferrer"
         className="link"
     >
-        {children}
+        {name}
     </a>
 );
 
 /**
+ * Component representing the works section of the webpage.
  *
+ * @return {object} JSX
  */
-function Footer({ footerRef }) {
+function Footer() {
     return (
-        <div id="#footer" className="footer-container" ref={footerRef}>
+        <div
+            className="footer-container"
+        >
             <hr className="seperator" />
             <div className="contacts">
                 <div className="email">

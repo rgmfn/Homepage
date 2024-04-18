@@ -26,7 +26,7 @@ const getWindowWidth = () => {
  */
 function App() {
     const SMALL_SCREEN_SIZE = 900;
-    // state for if the window width is < 900px
+    // state for if the window width is considered a small screen size
     const [isSmallScreen, setIsSmallScreen] = useState(getWindowWidth() <= SMALL_SCREEN_SIZE);
 
     useEffect(() => {

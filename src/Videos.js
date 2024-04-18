@@ -6,7 +6,15 @@ import YouTube from 'react-youtube';
 
 import './Videos.css'
 
-const Video = ({ videoCode }) => {
+/**
+ * A YouTube video.
+ *
+ * @param {string} videoId - the video ID of the YouTube video, found
+ *                           after watch?v= on YouTube videos
+ *
+ * @return {object} JSX
+ */
+const Video = ({ videoId }) => {
     const opts = {
         height: '390',
         width: '640',
@@ -17,16 +25,18 @@ const Video = ({ videoCode }) => {
 
     return (
         <YouTube
-            videoId={videoCode}
+            videoId={videoId}
             opts={opts}
         />
     )
 };
 
 /**
- * TODO make this really small, should fit in less than a screen
+ * Component representing the videos section of the webpage.
+ *
+ * @return {object} JSX
  */
-function Videos({ videosRef }) {
+function Videos() {
     gsap.registerPlugin(ScrollTrigger);
 
     const circleRef1 = useRef();
@@ -35,38 +45,60 @@ function Videos({ videosRef }) {
     const circleRef4 = useRef();
     const circleRef5 = useRef();
 
+    /**
+     * Animates the bouncing circles that appear when you scroll to the videos section.
+     */
     useGSAP(() => {
         const tl = gsap.timeline({
             scrollTrigger: {
+                // start the animation when the top of the circles are 60% down the screen
                 trigger: circleRef1.current,
                 start: 'top 60%',
+                // reverse the animation when you scroll up the page past it
                 toggleActions: "play none pause reverse",
             }
         });
 
-        gsap.set([
-            circleRef1.current,
-            circleRef2.current,
-            circleRef3.current,
-            circleRef4.current,
-            circleRef5.current,
-        ], { y: 0 })
+        tl.from(circleRef1.current, {  // animate circle1
+            duration: 1,      // animation lasts 1 second
+            opacity: 0,       // opacity starts at 0 (goes to 1)
+            y: 50,            // y position starts at 50 (goes to 0)
+            ease: "elastic",  // bounces into place when it arrives
+        })
+            .from(circleRef2.current, {
+                duration: 1,
+                opacity: 0,
+                y: 50,
+                ease: "elastic",
+            }, "-=75%") // start the animation 25% into the previous animation
 
-        tl.from(circleRef1.current, {
-            duration: 1, opacity: 0, y: 50, ease: "elastic",
-        }).from(circleRef2.current, {
-            duration: 1, opacity: 0, y: 50, ease: "elastic",
-        }, "-=75%").from(circleRef3.current, {
-            duration: 1, opacity: 0, y: 50, ease: "elastic",
-        }, "-=75%").from(circleRef4.current, {
-            duration: 1, opacity: 0, y: 50, ease: "elastic",
-        }, "-=75%").from(circleRef5.current, {
-            duration: 1, opacity: 0, y: 50, ease: "elastic",
-        }, "-=75%");
+            .from(circleRef3.current, {
+                duration: 1,
+                opacity: 0,
+                y: 50,
+                ease: "elastic",
+            }, "-=75%")
+
+            .from(circleRef4.current, {
+                duration: 1,
+                opacity: 0,
+                y: 50,
+                ease: "elastic",
+            }, "-=75%")
+
+            .from(circleRef5.current, {
+                duration: 1,
+                opacity: 0,
+                y: 50,
+                ease: "elastic",
+            }, "-=75%");
     });
 
     return (
-        <div id="videos" className="videos-container" ref={videosRef}>
+        <div
+            id="videos" // example of connecting up reference to element
+            className="videos-container"
+        >
             <div className="seperator-container">
                 <div className="circle" ref={circleRef1} />
                 <div className="circle" ref={circleRef2} />
@@ -75,7 +107,14 @@ function Videos({ videosRef }) {
                 <div className="circle" ref={circleRef5} />
             </div>
             <h1 className="title">Videos</h1>
-            <Video videoCode="HFzpkD5JvJk" />
+            <div className="videos-box">
+                <Video
+                    videoCode="HFzpkD5JvJk" // Advent of 2023 Day 1
+                />
+                <Video
+                    videoCode="Xk6SK1OAn4c" // Advent of 2023 Day 2
+                />
+            </div>
         </div>
     )
 }
