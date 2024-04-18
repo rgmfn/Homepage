@@ -103,9 +103,24 @@
     color: var(--blue);
 }
 
-.scroll {
+.arrow {
     position: absolute;
-    transform: rotate(90deg);
     right: 10px;
-    bottom: 50px;
+    bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.arrow .tip {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-top: 15px solid var(--text-alt);
+}
+
+.arrow .body {
+    height: 40px;
+    width: 5px;
+    background: var(--text-alt);
 }
