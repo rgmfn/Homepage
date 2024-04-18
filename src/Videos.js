@@ -14,22 +14,20 @@ import './Videos.css'
  *
  * @return {object} JSX
  */
-const Video = ({ videoId }) => {
-    const opts = {
-        height: '390',
-        width: '640',
-        playerVars: {
-            autoplay: 0,
-        },
-    };
-
-    return (
-        <YouTube
-            videoId={videoId}
-            opts={opts}
+const Video = ({ videoId }) => (
+    <div
+        className="video-responsive"
+    >
+        <iframe
+            width="853"
+            height="480"
+            src={`https://www.youtube.com/embed/${videoId}`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title="Embedded youtube"
         />
-    )
-};
+    </div>
+);
 
 /**
  * Component representing the videos section of the webpage.
@@ -109,10 +107,10 @@ function Videos() {
             <h1 className="title">Videos</h1>
             <div className="videos-box">
                 <Video
-                    videoCode="HFzpkD5JvJk" // Advent of 2023 Day 1
+                    videoId="HFzpkD5JvJk" // Advent of 2023 Day 1
                 />
                 <Video
-                    videoCode="Xk6SK1OAn4c" // Advent of 2023 Day 2
+                    videoId="Xk6SK1OAn4c" // Advent of 2023 Day 2
                 />
             </div>
         </div>

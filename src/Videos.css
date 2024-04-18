@@ -24,17 +24,44 @@
     justify-content: space-between;
     align-items: center;
     width: 90%;
+    gap: 30px;
 }
 
-.video-container {
+.video-responsive {
     overflow: hidden;
+    padding-bottom: 28.125%;
+    position: relative;
+    left: 0;
+    top: 0;
+    height: 100%;
     width: 100%;
-    display: flex;
-    justify-content: center;
+    margin: 20;
 }
 
-@media screen and (max-width: 1350px) {
+iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    border: none;
+}
+
+@media screen and (max-width: 900px) {
     .videos-box {
         flex-direction: column;
+    }
+
+    .video-responsive {
+        height: 100%;
+        padding-bottom: 56.25%;
+    }
+
+    iframe {
+        height: 100%;
+    }
+
+    .video-container {
+        height: 100%;
     }
 }
