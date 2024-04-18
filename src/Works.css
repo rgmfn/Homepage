@@ -84,7 +84,7 @@ a {
     opacity: 15%;
 }
 
-.work:hover .work-info {
+.work:hover .work-description {
     opacity: 100%;
 }
 
