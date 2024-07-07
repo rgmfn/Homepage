@@ -7,6 +7,7 @@ import { useRef } from "react";
 
 /**
  * TODO
+ * creates css class using alt
  */
 function SwipeImage({ src, alt }) {
     gsap.registerPlugin(ScrollTrigger)
@@ -32,7 +33,7 @@ function SwipeImage({ src, alt }) {
     });
 
     return (
-        <div className="img-container">
+        <div className={`img-container ${alt}-img-container`}>
             <img
                 ref={imageRef}
                 src={src}

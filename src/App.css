@@ -7,6 +7,7 @@
   --blue: #0755de;
   --white: #eee8db;
   --black: #000;
+  --gray: #a8a8a8;
 
   /* --gray: #5e5e5e; */
   /* --text: var(--black); */
@@ -14,7 +15,6 @@
   /* --bg: var(--white); */
 
   --dark-gray: #313131;
-  --gray: #a8a8a8;
   --text: var(--white);
   --text-alt: var(--gray);
   --bg: var(--black);

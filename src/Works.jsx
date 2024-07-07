@@ -22,10 +22,14 @@ const BigWork = ({ name, stack, href, src, children: description }) => (
         className="work"
         href={href}
     >
-        <div className="work-description">
-            {description}
+        <div className="work-img-container">
+            <div className="work-img-wrapper">
+                <div className="work-description">
+                    {description}
+                </div>
+                <img className="work-img" src={src} alt={`${name} img`} />
+            </div>
         </div>
-        <img className="work-img" src={src} alt={`${name} img`} />
         <div className="work-info">
             <div className="work-name">
                 {name}
@@ -140,7 +144,9 @@ function Works({ isSmallScreen }) {
                 duration: 1,
                 scale: 0,
                 rotate: 0,
-            }, "-=75%");
+            }, "-=75%")
+            ;
+
     });
 
     return (

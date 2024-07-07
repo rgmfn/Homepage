@@ -2,7 +2,6 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import React, { useRef } from 'react';
-import YouTube from 'react-youtube';
 
 import './Videos.css'
 

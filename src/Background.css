@@ -1,0 +1,31 @@
+.background-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1vw;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    z-index: -10;
+}
+
+.square {
+    height: 16vw;
+    width: 16vw;
+    opacity: 0.3;
+}
+
+.bg-left {
+    background-color: var(--red);
+}
+
+.bg-mid {
+    background-color: var(--green);
+}
+
+.bg-right {
+    background-color: var(--blue);
+}

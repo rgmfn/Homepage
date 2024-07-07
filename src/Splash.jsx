@@ -42,8 +42,7 @@ function Splash({ isSmallScreen }) {
     const botRef = useRef();
     const sectionsRef = useRef();
     const descriptionRef = useRef();
-    const tipRef = useRef();
-    const bodyRef = useRef();
+    const arrowRef = useRef();
 
     /**
      * Animates all the elements appearing in the splash animation.
@@ -119,33 +118,17 @@ function Splash({ isSmallScreen }) {
                 ease: Power2.easeInOut,
             }, "<")
 
-            // grow arrow tip
-            .from(tipRef.current, {
-                duration: 0.4,
-                borderTop: 0,
-                ease: Power2.easeInOut,
-            })
-
             // grow arrow body
-            .from(bodyRef.current, {
+            .from(arrowRef.current, {
                 duration: 1,
                 height: 0,
                 ease: Power2.easeInOut,
-            }, "-=20%")
-
-            // fade out arrow tip when scrolling away
-            .to(tipRef.current, {
-                scrollTrigger: {
-                    trigger: tipRef.current,
-                    scrub: true,
-                },
-                opacity: 0,
             })
 
-            // fade out arrow body when scrolling away
-            .to(bodyRef.current, {
+            // fade out arrow when scrolling away
+            .to(arrowRef.current, {
                 scrollTrigger: {
-                    trigger: bodyRef.current,
+                    trigger: arrowRef.current,
                     scrub: true,
                 },
                 opacity: 0,
@@ -182,12 +165,11 @@ function Splash({ isSmallScreen }) {
                 }
             </div>
             <div className="description" ref={descriptionRef}>
-                Software developer always looking to learn, explore, and grow.<br /><br />
-                Looking for work!
+                Software developer always looking to learn, explore, and grow.
             </div>
-            <div className="arrow">
-                <div className="body" ref={bodyRef} />
-                <div className="tip" ref={tipRef} />
+            <div className="arrow" ref={arrowRef}>
+                <div className="body" />
+                <div className="tip" />
             </div>
         </div>
     )

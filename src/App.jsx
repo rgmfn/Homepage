@@ -6,6 +6,7 @@ import About from './About'
 import Videos from './Videos'
 // import Music from './Music'
 import Footer from './Footer'
+// import Background from './Background'
 
 import './App.css'
 
@@ -42,6 +43,9 @@ function App() {
 
     return (
         <div>
+            { /*
+                <Background />
+            */ }
             <Splash
                 isSmallScreen={isSmallScreen}
             />
