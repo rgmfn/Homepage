@@ -164,15 +164,6 @@ function Works({ isSmallScreen }) {
             <h1 className="title">Works</h1>
             <div className="works-grid">
                 <Work
-                    name="Habit Forming"
-                    src="/images/habit forming prerelease.png"
-                    stack="Kotlin, Jetpack Compose"
-                    isScreenSmall={isSmallScreen}
-                >
-                    An Android app for tracking your habits.
-                    <p>Initial release coming soon!</p>
-                </Work>
-                <Work
                     name="Drum Corpsdle"
                     src="/images/drumcorpsdle.png"
                     href="https://drumcorpsdle.netlify.app"
@@ -180,7 +171,7 @@ function Works({ isSmallScreen }) {
                     isScreenSmall={isSmallScreen}
                 >
                     A wordle game for Drum Corps.
-                    <p>Featuring DCI's top 12 groups from the years 2000-2018, 2021-2022.</p>
+                    <p>Featuring DCI's top 12 groups from the years 2000-2018, 2021-2023.</p>
                 </Work>
                 <Work
                     name="Corg"

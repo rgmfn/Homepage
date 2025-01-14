@@ -21,7 +21,7 @@
 }
 
 body {
-    font-family: 'Instrument Sans', serif;
+    font-family: 'Instrument Sans', sans-serif, serif;
     font-weight: 700;
     background-color: var(--bg);
     color: var(--text);

@@ -33,7 +33,7 @@
     animation: linkHoverAnimation 0.5s backwards;
 }
 
-.made-in {
+.made-with {
     margin-top: 20px;
     font-size: 14px;
     color: var(--text-alt);
@@ -48,8 +48,19 @@
     }
 }
 
+.footer-div {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background: var(--dark-gray);
+}
+
 @media screen and (max-width: 900px) {
     .contacts {
         flex-direction: column;
+    }
+
+    .footer-div {
+        opacity: 0; /* keep it there for the spacing that this gives */
     }
 }

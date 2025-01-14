@@ -62,6 +62,7 @@ function Splash({ isSmallScreen }) {
         tl.from(whiteRef.current, { // animate whiteRef (the white `HI, I'M RYAN.`)
             duration: 0.8,
             opacity: 1,
+            delay: 1,
             ease: Power2.easeInOut,
         })
 
@@ -76,7 +77,8 @@ function Splash({ isSmallScreen }) {
             .from(midRef.current, {
                 duration: 1.4,
                 opacity: 0.8,
-                y: "-11.78vw", // magic number that positions midRef behind topRef
+                y: "-99%",
+                // y: "-11.78vw", // magic number that positions midRef behind topRef
                 ease: Power2.easeInOut,
             }, "<")  // no delay, play with previous animation
 
@@ -84,7 +86,8 @@ function Splash({ isSmallScreen }) {
             .from(botRef.current, {
                 duration: 1.4,
                 opacity: 0.8,
-                y: "-23.50vw", // magic number that positions botRef behind topRef
+                y: "-200%",
+                // y: "-23.50vw", // magic number that positions botRef behind topRef
                 ease: Power2.easeInOut,
             }, "<")
 
@@ -165,7 +168,8 @@ function Splash({ isSmallScreen }) {
                 }
             </div>
             <div className="description" ref={descriptionRef}>
-                Software developer always looking to learn, explore, and grow.
+                Software developer always looking to learn, explore, and grow.<br /><br />
+                Looking for work in the San Diego area!
             </div>
             <div className="arrow" ref={arrowRef}>
                 <div className="body" />

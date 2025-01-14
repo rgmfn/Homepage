@@ -36,12 +36,16 @@ function Footer() {
                     <Link href="mailto:rgmfn.dev@gmail.com">Email</Link>
                     {/*<div>rgmfn.dev@gmail.com</div>*/}
                 </div>
+                <div className="footer-div" />
                 <Link href="https://www.linkedin.com/in/rgmfn/">LinkedIn</Link>
+                <div className="footer-div" />
                 <Link href="https://github.com/rgmfn">Github</Link>
+                <div className="footer-div" />
                 <Link href="https://www.youtube.com/@RagamuffinAround">Youtube</Link>
+                <div className="footer-div" />
                 <Link href="https://github.com/rgmfn/Homepage">Source Code</Link>
             </div>
-            <div className="made-in">Made in React</div>
+            <div className="made-with">Made with React</div>
         </div>
     )
 }
