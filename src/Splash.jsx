@@ -169,7 +169,6 @@ function Splash({ isSmallScreen }) {
             </div>
             <div className="description" ref={descriptionRef}>
                 Software developer always looking to learn, explore, and grow.<br /><br />
-                Looking for work in the San Diego area!
             </div>
             <div className="arrow" ref={arrowRef}>
                 <div className="body" />
