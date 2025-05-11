@@ -171,7 +171,7 @@ function Works({ isSmallScreen }) {
                     isScreenSmall={isSmallScreen}
                 >
                     A wordle game for Drum Corps.
-                    <p>Featuring DCI's top 12 groups from the years 2000-2019, 2021-2023.</p>
+                    <p>Featuring DCI's top 12 groups from the years 2000-2019, 2021-2024.</p>
                 </Work>
                 <Work
                     name="Corg"
